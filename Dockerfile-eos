@@ -32,6 +32,7 @@ RUN wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.
     && echo 'using clang : 4.0 : clang++-4.0 ;' >> project-config.jam \
     && ./b2 -d0 -j$(nproc) --with-thread --with-date_time --with-system --with-filesystem --with-program_options \
        --with-signals --with-serialization --with-chrono --with-test --with-context --with-locale --with-coroutine --with-iostreams toolset=clang link=static install \
+    && ./b2 install \
     && cd .. && rm -rf boost_1_66_0
 
 RUN ldconfig /usr/local/lib    
